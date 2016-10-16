@@ -2,12 +2,16 @@
 {-# LANGUAGE OverloadedStrings #-}
 import           Data.Monoid (mappend)
 import           Hakyll
-import 		       Text.Pandoc
+import 	         Text.Pandoc
 
 
 --------------------------------------------------------------------------------
+config :: Configuration
+config = defaultConfiguration
+         { deployCommand = "rsync -avz -e 'ssh -i ~/.ssh/id_rsa_2' ./_site/ root@ginbaby:/var/www/ginbaby/" }
+
 main :: IO ()
-main = hakyll $ do
+main = hakyllWith config $ do
   match "static/*/*" $ do
 	route idRoute
 	compile copyFileCompiler
