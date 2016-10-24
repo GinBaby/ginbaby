@@ -1,6 +1,6 @@
 ---
 title: ayyy lmao.
-author: ginbaby
+headerImg: texasfeet.jpg
 ---
 
 Hello there.
